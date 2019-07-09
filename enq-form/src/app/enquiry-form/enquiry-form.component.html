@@ -1,0 +1,44 @@
+<div class="container">
+  <h1>Insurance Enquiry Form</h1>
+  <form (ngSubmit)="onSubmit()" #enqForm="ngForm">
+    <div class="form-group">
+      <label for="name">First Name</label>
+      <input type="text" class="form-control" id="fname" required
+      [(ngModel)]="model.firstName" name="fname">
+    </div>
+
+    <div class="form-group">
+      <label for="alterEgo">Last Name</label>
+      <input type="text" class="form-control" id="lname"
+      [(ngModel)]="model.lastName" name="lname">
+    </div>
+
+    <div class="form-group">
+      <label for="alterEgo">Mobile Number</label>
+      <input type="text" class="form-control" id="mobile"
+      [(ngModel)]="model.mobileNumber" name="mobile">
+    </div>
+
+    <div class="form-group">
+      <label for="alterEgo">Email ID</label>
+      <input type="text" class="form-control" id="email"
+      [(ngModel)]="model.emailId" name="email">
+    </div>
+
+    <div class="form-group">
+      <label for="alterEgo">Zip code</label>
+      <input type="text" class="form-control" id="zip"
+      [(ngModel)]="model.zip" name="zip">
+    </div>
+
+    <div class="form-group">
+      <label for="alterEgo">Enquiry Message</label>
+      <input type="text" class="form-control" id="enq"
+      [(ngModel)]="model.enquiryMessage" name="enquiry">
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+    <button type="button" class="btn btn-default" (click)="newFormBean(); enqForm.reset()">New Entry</button>
+
+  </form>
+</div>

@@ -7,11 +7,15 @@ import { AppComponent } from './app.component';
 import { EnquiryFormComponent } from './enquiry-form/enquiry-form.component';
 import { FormBean } from './model/form';
 import { BackendApiService } from './services/backend-api.service';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EnquiryFormComponent
+    EnquiryFormComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

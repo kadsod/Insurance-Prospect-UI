@@ -1,0 +1,14 @@
+.header{
+    border-bottom: 8px solid #254A73;
+    background-color: mintcream;
+    height: 100px; 
+    left:0; 
+    position:fixed; 
+    width:100%; 
+    top:0;
+}
+
+.logo{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 45px;
+}

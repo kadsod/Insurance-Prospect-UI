@@ -5,4 +5,5 @@ export class FormBean {
      emailId: string;
      enquiryMessage: string;
      zip: string;
+     gender: string;
 }

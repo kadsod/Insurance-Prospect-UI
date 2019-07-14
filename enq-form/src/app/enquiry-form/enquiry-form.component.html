@@ -13,6 +13,26 @@
       [(ngModel)]="model.lastName" name="lname">
     </div>
 
+    <div class="form-group" required>
+      <label for="alterEgo">Gender</label>
+      <div class="d-block my-3">
+
+        <div class="custom-control custom-radio">
+          <input id="male" type="radio" class="custom-control-input" value="male"  [(ngModel)]="model.gender" name="genderm">
+          <label for="alterEgo">Male</label>
+        </div>
+
+        <div class="custom-control custom-radio">
+          <input id="female" type="radio" class="custom-control-input" value="female"  [(ngModel)]="model.gender" name="genderf">
+          <label for="alterEgo">Female</label>
+        </div>
+
+        <div class="invalid-feedback" *ngIf="isSubmitted && enqForm.invalid">
+          <p>Please select either value</p>
+        </div>
+      </div>
+    </div>
+
     <div class="form-group">
       <label for="alterEgo">Mobile Number</label>
       <input type="text" class="form-control" id="mobile"

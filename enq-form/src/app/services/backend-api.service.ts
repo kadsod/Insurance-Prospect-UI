@@ -10,6 +10,7 @@ export class BackendApiService {
 
 
   submitData(model: FormBean) {
+    debugger;
     return this.http.post<FormBean>(url, model).subscribe( data => {
       alert('Form submitted successfully.');
     });

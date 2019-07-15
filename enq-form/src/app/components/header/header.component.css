@@ -1,7 +1,7 @@
 .header{
-    border-bottom: 8px solid #254A73;
-    background-color: mintcream;
-    height: 100px; 
+    border-bottom: 8px solid #294E80;
+    background-color: #294E80;
+    height: 50px; 
     left:0; 
     position:fixed; 
     width:100%; 
@@ -10,5 +10,8 @@
 
 .logo{
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 45px;
+    font-size: 40px;
+    color: azure;
+    margin-left: 10px;
+    margin-top: 5px;
 }

@@ -1,14 +1,11 @@
 .footer{
-    height: 50px;
-    border-top: 8px solid #254A73;
+    border-top: 8px solid #294E80;
     font-size: 14px;
     color: #343434;
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 20px;
-    height: 50px; 
-    left:0; 
-    position:fixed; 
-    width:100%; 
+    /* margin-left: auto;
+    margin-right: auto; */
+    padding-top: 10px;
+    height: 50px;
+    width:100%;
 }

@@ -1,4 +1,12 @@
 <div class="container">
+    <div class="leftsider">
+    <p>The Positive Approach is based on the belief that serious insurance consumers
+    understand it is most important to work with an agency that is committed to providing exceptional value in a 
+    long-term relationship by focusing on coverage, exposures, attention to your needs, and not simply seeking to 
+    find the cheapest cost. We work with a wide range of carriers and financial professionals that enable us to 
+    evaluate your situation and guide you in protecting the things most important to you.</p>
+    </div>
+  <div class="rightsider">
   <h1>Insurance Enquiry Form</h1>
   <form (ngSubmit)="onSubmit()" #enqForm="ngForm">
     <div class="form-group">
@@ -20,9 +28,6 @@
         <div class="custom-control custom-radio">
           <input id="male" type="radio" class="custom-control-input" value="male"  [(ngModel)]="model.gender" name="genderm">
           <label for="alterEgo">Male</label>
-        </div>
-
-        <div class="custom-control custom-radio">
           <input id="female" type="radio" class="custom-control-input" value="female"  [(ngModel)]="model.gender" name="genderf">
           <label for="alterEgo">Female</label>
         </div>
@@ -56,9 +61,9 @@
       <input type="text" class="form-control" id="enq"
       [(ngModel)]="model.enquiryMessage" name="enquiry">
     </div>
-
-    <button type="submit" class="btn btn-success">Submit</button>
-    <button type="button" class="btn btn-default" (click)="newFormBean(); enqForm.reset()">New Entry</button>
-
+      <button type="submit" class="btn btn-success">Submit</button>
+      <div class="divider"></div>
+      <button type="button" class="btn btn-default" (click)="newFormBean(); enqForm.reset()">New Entry</button>
   </form>
+</div>
 </div>

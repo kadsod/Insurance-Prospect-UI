@@ -1,6 +1,7 @@
 import { BackendApiService } from '../services/backend-api.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBean } from '../model/form';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 
 @Component({
@@ -24,5 +25,6 @@ export class EnquiryFormComponent implements OnInit {
 
   ngOnInit() {
   }
+
 
 }

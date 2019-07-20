@@ -71,7 +71,7 @@
       <!-- <input type="text" class="form-control" id="zip"
       [(ngModel)]="model.zip" name="zip"> -->
       <input type="text" class="form-control" name="zip" [(ngModel)]="model.zip" #zip="ngModel" 
-      [ngClass]="{ 'is-invalid': enqForm.submitted && zip.invalid }" required />
+      [ngClass]="{ 'is-invalid': enqForm.submitted && zip.invalid }" required maxlength="5" minlength="5" (keypress)="keyPress($event)"/>
       <div *ngIf="enqForm.submitted && zip.invalid">
           <div class="error-message" *ngIf="zip.errors.required">Zipcode is required</div>
       </div>

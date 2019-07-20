@@ -9,6 +9,11 @@ import { FormBean } from './model/form';
 import { BackendApiService } from './services/backend-api.service';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgProgressModule } from '@ngx-progressbar/core';
+import { NgProgressHttpModule } from '@ngx-progressbar/http';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +27,16 @@ import { FooterComponent } from './components/footer/footer.component';
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
+    NgProgressModule.withConfig({
+      trickleSpeed: 200,
+      min: 20,
+      meteor: true,
+      color: 'orange'
+    }),
+    NgProgressHttpModule
   ],
   providers: [EnquiryFormComponent, FormBean, BackendApiService],
   bootstrap: [AppComponent]

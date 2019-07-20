@@ -84,6 +84,10 @@ p {
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
 
+.error-message{
+    color: red;
+}
+
 label {
     display: inline-block;
     max-width: 100%;

@@ -11,19 +11,29 @@
   <h2 class="selection-title">Insurance Enquiry Form</h2>
   <form (ngSubmit)="onSubmit()" #enqForm="ngForm">
     <div class="form-group">
-      <label for="name">First Name</label>
-      <input type="text" class="form-control" id="fname" required
-      [(ngModel)]="model.firstName" name="fname">
+      <label for="name">First Name</label>*
+      <!-- <input type="text" class="form-control" id="fname" required
+      [(ngModel)]="model.firstName" name="fname"> -->
+      <input type="text" class="form-control" name="fname" [(ngModel)]="model.firstName" #firstName="ngModel" 
+      [ngClass]="{ 'is-invalid': enqForm.submitted && firstName.invalid }" required />
+      <div *ngIf="enqForm.submitted && firstName.invalid">
+          <div class="error-message" *ngIf="firstName.errors.required">First Name is required</div>
+      </div>
     </div>
 
     <div class="form-group">
-      <label for="alterEgo">Last Name</label>
-      <input type="text" class="form-control" id="lname"
-      [(ngModel)]="model.lastName" name="lname">
+      <label for="alterEgo">Last Name</label>*
+      <!-- <input type="text" class="form-control" id="lname"
+      [(ngModel)]="model.lastName" name="lname"> -->
+      <input type="text" class="form-control" name="lname" [(ngModel)]="model.lastName" #lastName="ngModel" 
+      [ngClass]="{ 'is-invalid': enqForm.submitted && lastName.invalid }" required />
+      <div *ngIf="enqForm.submitted && lastName.invalid">
+          <div class="error-message" *ngIf="lastName.errors.required">Last Name is required</div>
+      </div>
     </div>
 
     <div class="form-group" required>
-      <label for="alterEgo">Gender</label>
+      <label for="alterEgo">Gender</label>*
       <div class="d-block my-3">
 
         <div class="custom-control custom-radio">
@@ -40,9 +50,14 @@
     </div>
 
     <div class="form-group">
-      <label for="alterEgo">Mobile Number</label>
-      <input type="text" class="form-control" id="mobile"
-      [(ngModel)]="model.mobileNumber" name="mobile">
+      <label for="alterEgo">Mobile Number</label>*
+      <!-- <input type="text" class="form-control" id="mobile"
+      [(ngModel)]="model.mobileNumber" name="mobile"> -->
+      <input type="text" class="form-control" name="mobile" [(ngModel)]="model.mobileNumber" #mobileNumber="ngModel" 
+      [ngClass]="{ 'is-invalid': enqForm.submitted && mobileNumber.invalid }" required maxlength="10" minlength="10" (keypress)="keyPress($event)"/>
+      <div *ngIf="enqForm.submitted && mobileNumber.invalid">
+          <div class="error-message" *ngIf="mobileNumber.errors.required">Mobile number is required</div>
+      </div>
     </div>
 
     <div class="form-group">
@@ -52,9 +67,14 @@
     </div>
 
     <div class="form-group">
-      <label for="alterEgo">Zip code</label>
-      <input type="text" class="form-control" id="zip"
-      [(ngModel)]="model.zip" name="zip">
+      <label for="alterEgo">Zip code</label>*
+      <!-- <input type="text" class="form-control" id="zip"
+      [(ngModel)]="model.zip" name="zip"> -->
+      <input type="text" class="form-control" name="zip" [(ngModel)]="model.zip" #zip="ngModel" 
+      [ngClass]="{ 'is-invalid': enqForm.submitted && zip.invalid }" required />
+      <div *ngIf="enqForm.submitted && zip.invalid">
+          <div class="error-message" *ngIf="zip.errors.required">Zipcode is required</div>
+      </div>
     </div>
 
     <div class="form-group">

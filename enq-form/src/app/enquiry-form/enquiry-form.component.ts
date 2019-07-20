@@ -1,7 +1,6 @@
 import { BackendApiService } from '../services/backend-api.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBean } from '../model/form';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 
 @Component({
@@ -26,5 +25,13 @@ export class EnquiryFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  keyPress(event: any) {
+    const pattern = /[0-9\+\-\ ]/;
+
+    let inputChar = String.fromCharCode(event.charCode);
+    if (event.keyCode != 8 && !pattern.test(inputChar)) {
+      event.preventDefault();
+    }
+  }
 
 }

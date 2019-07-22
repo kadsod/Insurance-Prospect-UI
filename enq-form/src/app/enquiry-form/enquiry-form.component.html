@@ -61,9 +61,15 @@
     </div>
 
     <div class="form-group">
-      <label for="alterEgo">Email ID</label>
-      <input type="text" class="form-control" id="email"
-      [(ngModel)]="model.emailId" name="email">
+      <label for="alterEgo">Email ID</label>*
+      <!-- <input type="text" class="form-control" id="email"
+      [(ngModel)]="model.emailId" name="email"> -->
+      <input type="text" class="form-control" name="email" [(ngModel)]="model.emailId" #emailId="ngModel" 
+      [ngClass]="{ 'is-invalid': enqForm.submitted && emailId.invalid }"/>
+      <div *ngIf="enqForm.submitted && emailId.invalid">
+        <div class="error-message" *ngIf="emailId.errors.required">Email Id is required</div>
+        <!-- <div *ngIf="emailId.errors.email">Email must be a valid email address</div> -->
+    </div>
     </div>
 
     <div class="form-group">
@@ -78,11 +84,16 @@
     </div>
 
     <div class="form-group">
-      <label for="alterEgo">Enquiry Message</label>
-      <input type="text" class="form-control" id="enq"
-      [(ngModel)]="model.enquiryMessage" name="enquiry">
+      <label for="alterEgo">Enquiry Message</label>*
+      <!-- <input type="text" class="form-control" id="enq"
+      [(ngModel)]="model.enquiryMessage" name="enquiry"> -->
+      <input type="text" class="form-control" name="enq" [(ngModel)]="model.enquiryMessage" #enquiryMessage="ngModel" 
+      [ngClass]="{ 'is-invalid': enqForm.submitted && enquiryMessage.invalid }" required maxlength="256"/>
+      <div *ngIf="enqForm.submitted && enquiryMessage.invalid">
+          <div class="error-message" *ngIf="enquiryMessage.errors.required">Message is required</div>
+      </div>
     </div>
-      <button type="submit" class="btn btn-success">Submit</button>
+      <button type="submit" class="btn btn-success" [disabled]="enqForm.invalid">Submit</button>
       <div class="divider"></div>
       <button type="button" class="btn btn-default" (click)="newFormBean(); enqForm.reset()">New Entry</button>
   </form>

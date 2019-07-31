@@ -1,6 +1,7 @@
 import { BackendApiService } from '../services/backend-api.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { FormBean } from '../model/form';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { FormBean } from '../model/form';
 })
 export class EnquiryFormComponent implements OnInit {
 
-  constructor(private modelVal: FormBean, private service: BackendApiService) { }
+  constructor(private modelVal: FormBean, private service: BackendApiService, private el: ElementRef, private toast: ToastrService) { }
 
   model = new FormBean();
 
@@ -18,7 +19,7 @@ export class EnquiryFormComponent implements OnInit {
     this.model = new FormBean();
   }
 
-  onSubmit()  {
+  onSubmit() {
     this.service.submitData(this.model);
   }
 
@@ -31,6 +32,34 @@ export class EnquiryFormComponent implements OnInit {
     const inputChar = String.fromCharCode(event.charCode);
     if (event.keyCode !== 8 && !pattern.test(inputChar)) {
       event.preventDefault();
+    }
+  }
+
+  selectFile() {
+    const inputEl: HTMLInputElement = this.el.nativeElement.querySelector('#inputFile');
+
+    if (this.el.nativeElement.querySelector('#inputFile').value !== '') {
+      this.el.nativeElement.querySelector('#formUri').value = inputEl.files.item(0).name;
+    } else {
+      this.el.nativeElement.querySelector('#formUri').value = '';
+      this.el.nativeElement.querySelector('#inputFile').value = '';
+    }
+  }
+
+  uploadFile() {
+    const inputEl: HTMLInputElement = this.el.nativeElement.querySelector('#inputFile');
+    let fileCount: number;
+    if (null !== inputEl.files.item(0)) {
+       fileCount = inputEl.files.item(0).size;
+    } else {
+      this.toast.warning('Kindly select correct file using Browse');
+    }
+    if (fileCount > 0) {
+      const formData = new FormData();
+      formData.append('file', inputEl.files.item(0));
+      this.service.upload(formData);
+    } else {
+      // do nothing
     }
   }
 

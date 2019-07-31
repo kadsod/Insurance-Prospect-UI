@@ -7,4 +7,5 @@ export class FormBean {
      zip: string;
      gender: string;
      response: string;
+     userDate: Date;
 }

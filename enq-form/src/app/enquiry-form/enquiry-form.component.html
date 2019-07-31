@@ -1,102 +1,131 @@
 <div class="container">
   <div class="row">
     <div class="leftsider">
-    <p>The Positive Approach is based on the belief that serious insurance consumers
-    understand it is most important to work with an agency that is committed to providing exceptional value in a 
-    long-term relationship by focusing on coverage, exposures, attention to your needs, and not simply seeking to 
-    find the cheapest cost. We work with a wide range of carriers and financial professionals that enable us to 
-    evaluate your situation and guide you in protecting the things most important to you.</p>
+      <p>The Positive Approach is based on the belief that serious insurance consumers
+        understand it is most important to work with an agency that is committed to providing exceptional value in a
+        long-term relationship by focusing on coverage, exposures, attention to your needs, and not simply seeking to
+        find the cheapest cost. We work with a wide range of carriers and financial professionals that enable us to
+        evaluate your situation and guide you in protecting the things most important to you.</p>
     </div>
-  <div class="rightsider">
-  <h2 class="selection-title">Insurance Enquiry Form</h2>
-  <form (ngSubmit)="onSubmit()" #enqForm="ngForm">
-    <div class="form-group">
-      <label for="name">First Name</label>*
-      <!-- <input type="text" class="form-control" id="fname" required
+    <div class="rightsider">
+      <h2 class="selection-title">Insurance Enquiry Form</h2>
+      <form (ngSubmit)="onSubmit()" #enqForm="ngForm">
+        <div class="form-group">
+          <label for="name">First Name</label>*
+          <!-- <input type="text" class="form-control" id="fname" required
       [(ngModel)]="model.firstName" name="fname"> -->
-      <input type="text" class="form-control" name="fname" [(ngModel)]="model.firstName" #firstName="ngModel" 
-      [ngClass]="{ 'is-invalid': enqForm.submitted && firstName.invalid }" required />
-      <div *ngIf="enqForm.submitted && firstName.invalid">
-          <div class="error-message" *ngIf="firstName.errors.required">First Name is required</div>
-      </div>
-    </div>
+          <input type="text" class="form-control" name="fname" [(ngModel)]="model.firstName" #firstName="ngModel"
+            [ngClass]="{ 'is-invalid': enqForm.submitted && firstName.invalid }" required />
+          <div *ngIf="enqForm.submitted && firstName.invalid">
+            <div class="error-message" *ngIf="firstName.errors.required">First Name is required</div>
+          </div>
+        </div>
 
-    <div class="form-group">
-      <label for="alterEgo">Last Name</label>*
-      <!-- <input type="text" class="form-control" id="lname"
+        <div class="form-group">
+          <label for="alterEgo">Last Name</label>*
+          <!-- <input type="text" class="form-control" id="lname"
       [(ngModel)]="model.lastName" name="lname"> -->
-      <input type="text" class="form-control" name="lname" [(ngModel)]="model.lastName" #lastName="ngModel" 
-      [ngClass]="{ 'is-invalid': enqForm.submitted && lastName.invalid }" required />
-      <div *ngIf="enqForm.submitted && lastName.invalid">
-          <div class="error-message" *ngIf="lastName.errors.required">Last Name is required</div>
-      </div>
-    </div>
-
-    <div class="form-group" required>
-      <label for="alterEgo">Gender</label>*
-      <div class="d-block my-3">
-
-        <div class="custom-control custom-radio">
-          <input id="male" type="radio" class="custom-control-input" value="male"  [(ngModel)]="model.gender" name="genderm">
-          <label for="alterEgo">Male</label>
-          <input id="female" type="radio" class="custom-control-input" value="female"  [(ngModel)]="model.gender" name="genderf">
-          <label for="alterEgo">Female</label>
+          <input type="text" class="form-control" name="lname" [(ngModel)]="model.lastName" #lastName="ngModel"
+            [ngClass]="{ 'is-invalid': enqForm.submitted && lastName.invalid }" required />
+          <div *ngIf="enqForm.submitted && lastName.invalid">
+            <div class="error-message" *ngIf="lastName.errors.required">Last Name is required</div>
+          </div>
         </div>
 
-        <div class="invalid-feedback" *ngIf="isSubmitted && enqForm.invalid">
-          <p>Please select either value</p>
-        </div>
-      </div>
-    </div>
+        <div class="form-group" required>
+          <label for="alterEgo">Gender</label>*
+          <div class="d-block my-3">
 
-    <div class="form-group">
-      <label for="alterEgo">Mobile Number</label>*
-      <!-- <input type="text" class="form-control" id="mobile"
+            <div class="custom-control custom-radio">
+              <input id="male" type="radio" class="custom-control-input" value="male" [(ngModel)]="model.gender"
+                name="genderm">
+              <label for="alterEgo">Male</label>
+              <input id="female" type="radio" class="custom-control-input" value="female" [(ngModel)]="model.gender"
+                name="genderf">
+              <label for="alterEgo">Female</label>
+            </div>
+
+            <div class="invalid-feedback" *ngIf="isSubmitted && enqForm.invalid">
+              <p>Please select either value</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="alterEgo">Mobile Number</label>*
+          <!-- <input type="text" class="form-control" id="mobile"
       [(ngModel)]="model.mobileNumber" name="mobile"> -->
-      <input type="text" class="form-control" name="mobile" [(ngModel)]="model.mobileNumber" #mobileNumber="ngModel" 
-      [ngClass]="{ 'is-invalid': enqForm.submitted && mobileNumber.invalid }" required maxlength="10" minlength="10" (keypress)="keyPress($event)"/>
-      <div *ngIf="enqForm.submitted && mobileNumber.invalid">
-          <div class="error-message" *ngIf="mobileNumber.errors.required">Mobile number is required</div>
-      </div>
-    </div>
+          <input type="text" class="form-control" name="mobile" [(ngModel)]="model.mobileNumber" #mobileNumber="ngModel"
+            [ngClass]="{ 'is-invalid': enqForm.submitted && mobileNumber.invalid }" required maxlength="10"
+            minlength="10" (keypress)="keyPress($event)" />
+          <div *ngIf="enqForm.submitted && mobileNumber.invalid">
+            <div class="error-message" *ngIf="mobileNumber.errors.required">Mobile number is required</div>
+          </div>
+        </div>
 
-    <div class="form-group">
-      <label for="alterEgo">Email ID</label>*
-      <!-- <input type="text" class="form-control" id="email"
+        <div class="form-group">
+          <label for="alterEgo">Email ID</label>*
+          <!-- <input type="text" class="form-control" id="email"
       [(ngModel)]="model.emailId" name="email"> -->
-      <input type="text" class="form-control" name="email" [(ngModel)]="model.emailId" #emailId="ngModel" 
-      [ngClass]="{ 'is-invalid': enqForm.submitted && emailId.invalid }"/>
-      <div *ngIf="enqForm.submitted && emailId.invalid">
-        <div class="error-message" *ngIf="emailId.errors.required">Email Id is required</div>
-        <!-- <div *ngIf="emailId.errors.email">Email must be a valid email address</div> -->
-    </div>
-    </div>
+          <input type="text" class="form-control" name="email" [(ngModel)]="model.emailId" #emailId="ngModel"
+            [ngClass]="{ 'is-invalid': enqForm.submitted && emailId.invalid }" />
+          <div *ngIf="enqForm.submitted && emailId.invalid">
+            <div class="error-message" *ngIf="emailId.errors.required">Email Id is required</div>
+            <!-- <div *ngIf="emailId.errors.email">Email must be a valid email address</div> -->
+          </div>
+        </div>
 
-    <div class="form-group">
-      <label for="alterEgo">Zip code</label>*
-      <!-- <input type="text" class="form-control" id="zip"
+        <div class="form-group">
+          <label for="alterEgo">Zip code</label>*
+          <!-- <input type="text" class="form-control" id="zip"
       [(ngModel)]="model.zip" name="zip"> -->
-      <input type="text" class="form-control" name="zip" [(ngModel)]="model.zip" #zip="ngModel" 
-      [ngClass]="{ 'is-invalid': enqForm.submitted && zip.invalid }" required maxlength="5" minlength="5" (keypress)="keyPress($event)"/>
-      <div *ngIf="enqForm.submitted && zip.invalid">
-          <div class="error-message" *ngIf="zip.errors.required">Zipcode is required</div>
-      </div>
-    </div>
+          <input type="text" class="form-control" name="zip" [(ngModel)]="model.zip" #zip="ngModel"
+            [ngClass]="{ 'is-invalid': enqForm.submitted && zip.invalid }" required maxlength="5" minlength="5"
+            (keypress)="keyPress($event)" />
+          <div *ngIf="enqForm.submitted && zip.invalid">
+            <div class="error-message" *ngIf="zip.errors.required">Zipcode is required</div>
+          </div>
+        </div>
 
-    <div class="form-group">
-      <label for="alterEgo">Enquiry Message</label>*
-      <!-- <input type="text" class="form-control" id="enq"
+        <div class="form-group">
+          <label for="alterEgo">Enquiry Message</label>*
+          <!-- <input type="text" class="form-control" id="enq"
       [(ngModel)]="model.enquiryMessage" name="enquiry"> -->
-      <input type="text" class="form-control" name="enq" [(ngModel)]="model.enquiryMessage" #enquiryMessage="ngModel" 
-      [ngClass]="{ 'is-invalid': enqForm.submitted && enquiryMessage.invalid }" required maxlength="256"/>
-      <div *ngIf="enqForm.submitted && enquiryMessage.invalid">
-          <div class="error-message" *ngIf="enquiryMessage.errors.required">Message is required</div>
+          <input type="text" class="form-control" name="enq" [(ngModel)]="model.enquiryMessage"
+            #enquiryMessage="ngModel" [ngClass]="{ 'is-invalid': enqForm.submitted && enquiryMessage.invalid }" required
+            maxlength="256" />
+          <div *ngIf="enqForm.submitted && enquiryMessage.invalid">
+            <div class="error-message" *ngIf="enquiryMessage.errors.required">Message is required</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="alterEgo">Date</label>*
+          <input type="date" class="form-control" name="date" [(ngModel)]="model.userDate"
+            #userDate="ngModel" [ngClass]="{ 'is-invalid': enqForm.submitted && userDate.invalid }" required
+            maxlength="256" />
+          <div *ngIf="enqForm.submitted && userDate.invalid">
+            <div class="error-message" *ngIf="enquiryMessage.errors.required">Date is required</div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-success" [disabled]="enqForm.invalid">Submit</button>
+        <div class="divider"></div>
+        <button type="button" class="btn btn-default" (click)="newFormBean(); enqForm.reset()">New Entry</button>
+        <br/>
+        <br/>OR Upload Data from Spreadsheet
+      </form>
+
+      <div class="form-group">
+        <input id ="formUri" type="text" [(ngModel)]="fileUri" disabled>
+        <input id ="inputFile" style="display: none" type="file" (change)="selectFile()" class="form-control" accept=".xlsx,.xls"/>
+        <div class="col-md-3">
+          <br/><label for="inputFile"><span class="TextButton">Browse</span></label>
+          <div>
+            <button class="btn btn-secondary" (click)="uploadFile()">Upload</button>
+          </div>
+        </div>
       </div>
     </div>
-      <button type="submit" class="btn btn-success" [disabled]="enqForm.invalid">Submit</button>
-      <div class="divider"></div>
-      <button type="button" class="btn btn-default" (click)="newFormBean(); enqForm.reset()">New Entry</button>
-  </form>
-</div>
-</div>
+  </div>
 </div>

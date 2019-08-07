@@ -1,14 +1,17 @@
 <div class="container">
   <div class="row">
     <div class="leftsider">
-      <p>The Positive Approach is based on the belief that serious insurance consumers
-        understand it is most important to work with an agency that is committed to providing exceptional value in a
-        long-term relationship by focusing on coverage, exposures, attention to your needs, and not simply seeking to
-        find the cheapest cost. We work with a wide range of carriers and financial professionals that enable us to
-        evaluate your situation and guide you in protecting the things most important to you.</p>
+      <h2 class="selection-title">Batch Upload</h2>
+      <input id="formUri" type="text" [(ngModel)]="fileUri" disabled>
+      <input id="inputFile" style="display: none" type="file" (change)="selectFile()" class="form-control"
+        accept=".xlsx,.xls" />
+      <label for="inputFile"><span style="margin: 0 5px 0 5px;" class="TextButton">Browse</span></label>
+      <div>
+        <button class="btn btn btn-success" (click)="uploadFile()">Upload</button>
+      </div>
     </div>
     <div class="rightsider">
-      <h2 class="selection-title">Insurance Enquiry Form</h2>
+      <h2 class="selection-title">Individual Record Submission</h2>
       <form (ngSubmit)="onSubmit()" #enqForm="ngForm">
         <div class="form-group">
           <label for="name">First Name</label>*
@@ -34,21 +37,19 @@
 
         <div class="form-group" required>
           <label for="alterEgo">Gender</label>*
-          <div class="d-block my-3">
-
-            <div class="custom-control custom-radio">
-              <input id="male" type="radio" class="custom-control-input" value="male" [(ngModel)]="model.gender"
-                name="genderm">
-              <label for="alterEgo">Male</label>
-              <input id="female" type="radio" class="custom-control-input" value="female" [(ngModel)]="model.gender"
-                name="genderf">
-              <label for="alterEgo">Female</label>
-            </div>
-
-            <div class="invalid-feedback" *ngIf="isSubmitted && enqForm.invalid">
-              <p>Please select either value</p>
-            </div>
+          <!-- <div class="d-block my-3"> -->
+          <div class="radio">
+            <input id="male" type="radio" value="male" [(ngModel)]="model.gender" name="genderm" required>
+            <label style="margin: 0 5px 0 5px;" for="alterEgo">Male</label>
+            <input id="female" type="radio" value="female" [(ngModel)]="model.gender" name="genderf">
+            <label style="margin: 0 5px 0 5px;" for="alterEgo">Female</label>
+            <input id="other" type="radio" value="other" [(ngModel)]="model.gender" name="gendero" required>
+            <label style="margin: 0 5px 0 5px;" for="alterEgo">Other</label>
           </div>
+          <div class="invalid-feedback" *ngIf="isSubmitted && enqForm.invalid">
+            <p>Please select either value</p>
+          </div>
+          <!-- </div> -->
         </div>
 
         <div class="form-group">
@@ -68,10 +69,9 @@
           <!-- <input type="text" class="form-control" id="email"
       [(ngModel)]="model.emailId" name="email"> -->
           <input type="text" class="form-control" name="email" [(ngModel)]="model.emailId" #emailId="ngModel"
-            [ngClass]="{ 'is-invalid': enqForm.submitted && emailId.invalid }" />
+            [ngClass]="{ 'is-invalid': enqForm.submitted && emailId.invalid }" required />
           <div *ngIf="enqForm.submitted && emailId.invalid">
             <div class="error-message" *ngIf="emailId.errors.required">Email Id is required</div>
-            <!-- <div *ngIf="emailId.errors.email">Email must be a valid email address</div> -->
           </div>
         </div>
 
@@ -87,36 +87,30 @@
           </div>
         </div>
 
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label for="alterEgo">Enquiry Message</label>*
-          <!-- <input type="text" class="form-control" id="enq"
-      [(ngModel)]="model.enquiryMessage" name="enquiry"> -->
           <input type="text" class="form-control" name="enq" [(ngModel)]="model.enquiryMessage"
             #enquiryMessage="ngModel" [ngClass]="{ 'is-invalid': enqForm.submitted && enquiryMessage.invalid }" required
             maxlength="256" />
           <div *ngIf="enqForm.submitted && enquiryMessage.invalid">
             <div class="error-message" *ngIf="enquiryMessage.errors.required">Message is required</div>
           </div>
-        </div>
+        </div> -->
 
         <div class="form-group">
           <label for="alterEgo">Date</label>*
-          <input type="date" class="form-control" name="date" [(ngModel)]="model.userDate"
-            #userDate="ngModel" [ngClass]="{ 'is-invalid': enqForm.submitted && userDate.invalid }" required
-            maxlength="256" />
+          <input type="date" class="form-control" name="date" [(ngModel)]="model.userDate" #userDate="ngModel"
+            [ngClass]="{ 'is-invalid': enqForm.submitted && userDate.invalid }" required maxlength="256" />
           <div *ngIf="enqForm.submitted && userDate.invalid">
-            <div class="error-message" *ngIf="enquiryMessage.errors.required">Date is required</div>
+            <div class="error-message" *ngIf="userDate.errors.required">Date is required</div>
           </div>
         </div>
 
         <button type="submit" class="btn btn-success" [disabled]="enqForm.invalid">Submit</button>
         <div class="divider"></div>
-        <button type="button" class="btn btn-default" (click)="newFormBean(); enqForm.reset()">New Entry</button>
-        <br/>
-        <br/>OR Upload Data from Spreadsheet
+        <button type="button" class="btn btn-info" (click)="newFormBean(); enqForm.reset()">New Entry</button>
       </form>
-
-      <div class="form-group">
+      <!-- <div class="form-group">
         <input id ="formUri" type="text" [(ngModel)]="fileUri" disabled>
         <input id ="inputFile" style="display: none" type="file" (change)="selectFile()" class="form-control" accept=".xlsx,.xls"/>
         <div class="col-md-3">
@@ -125,7 +119,7 @@
             <button class="btn btn-secondary" (click)="uploadFile()">Upload</button>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>

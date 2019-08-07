@@ -14,7 +14,8 @@ export class EnquiryFormComponent implements OnInit {
   constructor(private modelVal: FormBean, private service: BackendApiService, private el: ElementRef, private toast: ToastrService) { }
 
   model = new FormBean();
-
+  fileUri = '';
+  isSubmitted = false;
   newFormBean() {
     this.model = new FormBean();
   }

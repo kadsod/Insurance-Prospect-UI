@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { FormBean } from '../model/form';
 import { ToastrService } from 'ngx-toastr';
 
-const url = 'http://localhost:8080/data/postData ';
-const urlDoc = 'http://localhost:8080/data/file ';
+const url = 'https://insurance-prospect-backend.cfapps.io/data/postData ';
+const urlDoc = 'https://insurance-prospect-backend.cfapps.io/data/file ';
 @Injectable()
 export class BackendApiService {
 
